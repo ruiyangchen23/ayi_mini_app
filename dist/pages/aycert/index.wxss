@@ -1,0 +1,62 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/@tarojs/webpack5-runner/node_modules/css-loader/dist/cjs.js??clonedRuleSet-19.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/@tarojs/webpack5-runner/node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-19.use[2]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-19.use[4]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/pages/aycert/index.vue?vue&type=style&index=0&id=8a0fcb3a&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.aycert {
+  margin: 0 30rpx 30rpx 30rpx;
+}
+.aycert .row {
+  margin-top: 30rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+}
+.aycert .row .title {
+  font-size: 28rpx;
+  line-height: 1.2rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+}
+.aycert .row .title .require {
+  color: red;
+  padding-left: 6rpx;
+}
+.aycert .row .desc {
+  font-size: 20rpx;
+  line-height: 0.8rem;
+  margin-top: 10rpx;
+}
+.aycert .row .err {
+  font-size: 20rpx;
+  line-height: 0.8rem;
+  margin-top: 10rpx;
+  color: red;
+}
+.aycert .row .content {
+  padding-top: 20rpx;
+}
+.aycert .row .content .nut-textarea,
+.aycert .row .content .nut-input {
+  padding: 0;
+}
+.aycert .row .content .sub-row {
+  padding: 20rpx;
+}
+.aycert .row .content .sub-row .sub-title {
+  font-size: 24rpx;
+}
+.aycert .row .content .sub-row .sub-content {
+  padding-top: 10rpx;
+}
+.aycert .row.btn {
+  background: rgba(0, 0, 0, 0);
+  padding: 0 0 20rpx 0;
+}
+.aycert .row.btn .submit {
+  font-size: 28rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  height: 70rpx;
+  line-height: 70rpx;
+}

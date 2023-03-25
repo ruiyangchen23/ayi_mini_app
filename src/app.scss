@@ -1,0 +1,60 @@
+page {
+  background-color: #f7f8fa;
+}
+
+.block {
+  margin-top: 10rpx;
+}
+
+.bgc-w {
+  background-color: #fff;
+}
+
+.huise {
+  color: rgb(171, 171, 171);
+}
+
+.price {
+  color: #fa2c19;
+  font-weight: 600;
+}
+
+.price-vip {
+  color: rgb(255, 204, 50);
+  font-weight: 500;
+}
+
+/* 值颜色-灰色 */
+.valc-h {
+  color: #505050;
+}
+
+/* 详情颜色-灰色 */
+.descc-h {
+  color: #868686;
+}
+
+.ay-main-txt {
+  color: rgb(236, 128, 126);
+}
+
+.nut-button--primary {
+  color: #fff;
+  background: linear-gradient(135deg, #ee8283 0%, #ec8285 100%);
+  border: 1px solid transparent;
+}
+
+.nut-tabbar-item {
+  color: rgb(236, 128, 126);
+}
+
+.nut-tabbar-item__icon--unactive {
+  color: #000;
+}
+
+.nut-tabs__titles-item.active .nut-tabs__titles-item__line {
+  content: " ";
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #ee8283 0%, rgba(250, 44, 25, 0.15) 100%);
+}

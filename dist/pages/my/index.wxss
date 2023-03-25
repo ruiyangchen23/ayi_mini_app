@@ -1,0 +1,356 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/@tarojs/webpack5-runner/node_modules/css-loader/dist/cjs.js??clonedRuleSet-19.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/@tarojs/webpack5-runner/node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-19.use[2]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-19.use[4]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/pages/my/index.vue?vue&type=style&index=0&id=698d409a&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.background {
+  position: absolute;
+  top: 0;
+  width: 750rpx;
+  height: 400rpx;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(236, 128, 126)), to(rgba(236, 128, 126, 0.5)));
+  background: -webkit-linear-gradient(rgb(236, 128, 126) 0%, rgba(236, 128, 126, 0.5) 100%);
+  background: -o-linear-gradient(rgb(236, 128, 126) 0%, rgba(236, 128, 126, 0.5) 100%);
+  background: linear-gradient(rgb(236, 128, 126) 0%, rgba(236, 128, 126, 0.5) 100%);
+  border-radius: 0 0 80rpx 80rpx;
+}
+.all {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-bottom: 100rpx;
+}
+.topright {
+  position: absolute;
+  z-index: 888;
+  right: 40rpx;
+  top: 40rpx;
+  color: #fff;
+}
+.touxiang {
+  padding-top: 80rpx;
+}
+.touxiang .login,
+.touxiang .nologin {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.touxiang .login .avatar,
+.touxiang .nologin .avatar {
+  border-radius: 50%;
+  border: #fff 4rpx solid;
+}
+.touxiang .login .usename,
+.touxiang .nologin .usename {
+  position: relative;
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: 500;
+  padding-top: 14rpx;
+  margin-left: 20rpx;
+}
+.touxiang .vip {
+  position: relative;
+  font-size: 20rpx;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  padding-top: 14rpx;
+  color: #fff;
+}
+.touxiang .vip .txt {
+  background: rgba(43, 43, 43, 0.55);
+  border-radius: 10rpx;
+  padding: 4rpx 10rpx;
+}
+.favorites-footprints {
+  position: relative;
+  padding-top: 80rpx;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+      justify-content: space-evenly;
+  color: #fff;
+  font-size: 26rpx;
+}
+.favorites-footprints .favorites {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.favorites-footprints .favorites .num {
+  font-size: 30rpx;
+}
+.favorites-footprints .favorites .txt {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.favorites-footprints .favorites .txt .txt-right {
+  padding-left: 8rpx;
+}
+.favorites-footprints .viewiding-line {
+  border-right: #fff 1rpx solid;
+  margin: 10rpx 0;
+}
+.favorites-footprints .footprints {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.favorites-footprints .footprints .num {
+  font-size: 30rpx;
+}
+.favorites-footprints .footprints .txt {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.favorites-footprints .footprints .txt .txt-right {
+  padding-left: 8rpx;
+}
+.openvip {
+  position: relative;
+  margin-top: 30rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30rpx 30rpx;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  border-radius: 20rpx;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+.openvip .left {
+  font-size: 24rpx;
+  color: rgb(255, 164, 37);
+}
+.myorder {
+  position: relative;
+  margin-top: 30rpx;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  border-radius: 20rpx;
+}
+.myorder .head {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+.myorder .head .left {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.myorder .head .right {
+  font-size: 22rpx;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.myorder .head .right .arrow {
+  width: 10rpx;
+  height: 10rpx;
+  border-top: 1rpx solid #000;
+  border-right: 1rpx solid #000;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.myorder .status {
+  padding-top: 30rpx;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  font-size: 22rpx;
+}
+.myorder .status .item {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.myorder .status .item .h5-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+.balance {
+  position: relative;
+  margin-top: 30rpx;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  border-radius: 20rpx;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+.balance .item {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.balance .item .num {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.balance .item .txt {
+  font-size: 26rpx;
+}
+.menu {
+  position: relative;
+  margin-top: 80rpx;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  border-radius: 20rpx;
+}
+.menu .head {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+.menu .head .left {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.menu .unread-count {
+  font-size: 20rpx;
+  width: 24rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  background: #f00;
+  border-radius: 20rpx;
+  color: #fff;
+  padding: 4rpx 4rpx;
+  text-align: center;
+}
+.kefu {
+  position: relative;
+  margin-top: 30rpx;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  border-radius: 20rpx;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.kefu .title {
+  padding-bottom: 20rpx;
+}
+.kefu .qrcode {
+  padding-bottom: 20rpx;
+}
+.kefu .weno {
+  padding-bottom: 20rpx;
+}
+.kefu .btns {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+.copyright {
+  position: relative;
+  margin-top: 30rpx;
+  padding: 20rpx 0;
+  font-size: 20rpx;
+  text-align: center;
+  line-height: 1.2rem;
+}
+.nut-popup {
+  border-radius: 30rpx;
+  overflow: hidden;
+}

@@ -1,0 +1,185 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/@tarojs/webpack5-runner/node_modules/css-loader/dist/cjs.js??clonedRuleSet-19.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/@tarojs/webpack5-runner/node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-19.use[2]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-19.use[4]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/pages/aydetail/index.vue?vue&type=style&index=0&id=1436c960&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.scroll-view {
+  height: 100vh;
+}
+.scroll-view .footer {
+  padding-bottom: 2rpx;
+}
+.aydetail {
+  padding: 30rpx 30rpx 0 30rpx;
+}
+.aydetail .info {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.aydetail .info .left {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+}
+.aydetail .info .left .row {
+  padding-top: 10rpx;
+}
+.aydetail .info .left .avatar {
+  width: 160rpx;
+  height: 160rpx;
+}
+.aydetail .info .right {
+  padding-left: 60rpx;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+      flex: 1;
+}
+.aydetail .info .right > .row {
+  padding-top: 10rpx;
+}
+.aydetail .info .right .name {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  font-size: 32rpx;
+  font-weight: 600;
+  padding-top: 0;
+}
+.aydetail .info .right .comment-num {
+  font-size: 28rpx;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+.aydetail .comment {
+  margin-top: 30rpx;
+  padding: 20rpx;
+  border-radius: 20rpx;
+}
+.aydetail .comment .head {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.aydetail .comment .nocomment {
+  text-align: center;
+  font-size: 26rpx;
+  color: #ccc;
+  line-height: 1.6rem;
+}
+.aydetail .comment .list .it {
+  padding-top: 30rpx;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+      align-items: flex-start;
+}
+.aydetail .comment .list .it .left .avatar {
+  width: 100rpx;
+  height: 100rpx;
+}
+.aydetail .comment .list .it .right {
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  width: 100%;
+}
+.aydetail .comment .list .it .right .row {
+  padding-top: 10rpx;
+}
+.aydetail .comment .list .it .right .nickname {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  font-size: 28rpx;
+}
+.aydetail .comment .list .it .right .nickname .reply {
+  font-size: 24rpx;
+}
+.aydetail .comment .list .it .right .timeandlocation {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  color: #ccc;
+}
+.aydetail .comment .list .it .right .timeandlocation .imgs {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+}
+.aydetail .comment .list .it .right .timeandlocation .imgs .img {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 10rpx;
+}
+.aydetail .comment .list .it .right .replycomment-list .nut-divider::after {
+  border-color: rgba(0, 0, 0, 0);
+}
+.aydetail .comment .list .it .right .replycomment-list .it {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+}
+.aydetail .comment .list .it .right .replycomment-list .it .it-left .it-avatar {
+  width: 60rpx;
+  height: 60rpx;
+}
+.aydetail .comment .list .it .right .replycomment-list .it .it-right {
+  margin-left: 20rpx;
+  width: 100%;
+}
+.aydetail .comment .list .it .right .replycomment-list .it .it-right .it-name {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  font-size: 28rpx;
+}
+.aydetail .comment .list .it .right .replycomment-list .it .it-right .it-name .reply {
+  font-size: 24rpx;
+}
+.aydetail .comment .list .it .right .replycomment-list .it .it-right .it-time {
+  color: #ccc;
+}
+.reply-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+      align-items: flex-end;
+}
+.imgs-popup .popup-center {
+  width: 600rpx;
+  height: 600rpx;
+}
+.nut-popup {
+  border-radius: 30rpx;
+  overflow: hidden;
+}
