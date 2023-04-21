@@ -117,10 +117,17 @@ export default {
           unreadCount: true
           // iconPath: 'my'
         },
+        // {
+        //   pagePath: "pages/new_index/new_index",
+        //   text: "新首页",
+        //   unreadCount: true
+        //   // iconPath: 'my'
+        // },
+
       ],
       unreadCount: 0
     });
-
+    
     const current = ref(0);
     const unreadCount = ref(0);
 

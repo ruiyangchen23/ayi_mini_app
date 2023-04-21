@@ -1,7 +1,8 @@
 module.exports = {
   env: {
     NODE_ENV: '"production"',
-    REQ_BASE_URL: '"https://ayi.51putong.com/api/miniapp"',
+    REQ_BASE_URL : '"http://localhost:8000/api"',
+    // REQ_BASE_URL: '"https://ayi.51putong.com/api/miniapp"',
     APP_ID: '"wxdf7b253ec398a07d"',
     DEFAULT_AVATAR: '"https://nanny-tt.oss-cn-beijing.aliyuncs.com/ay/images/sys/avatar.jpg"'
   },

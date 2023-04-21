@@ -11,12 +11,23 @@ import './assert/fonts/font.css'
 import Taro from '@tarojs/taro'
 import API from './utils/api'
 
+// import 'vuetify/styles'
+// import { createVuetify } from 'vuetify'
+// import * as components from 'vuetify/components'
+// import * as directives from 'vuetify/directives'
+
+// const vuetify = createVuetify({
+//   components,
+//   directives,
+// })
+
 const App = createApp({
   onShow (options) {
     console.log('onShow', options);
   },
   // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
 })
+
 
 App.use(Button)
 .use(Toast)
@@ -63,6 +74,7 @@ App.use(Button)
 .use(Notify)
 .use(Swipe)
 .use(WaterMark)
+// .use(vuetify)
 
 const login = () => {
   API.login(() => {

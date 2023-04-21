@@ -1,3 +1,4 @@
+
 <template>
   <view class="comment">
     <view v-if="formItems[0].show" class="row">
@@ -292,6 +293,7 @@
       <view class="title">{{ formItems[11].num }}) 佣金情况</view>
       <view class="content">
         <nut-input placeholder="如10000/月" v-model="submitData.payamountTxt" />
+        
       </view>
     </view>
     <!-- <view class="row">
@@ -322,6 +324,7 @@
           placeholder="如: 手机号、微信号、电子邮箱等"
           v-model="submitData.email"
         />
+        <!-- <nut-button type="primary" v-on:click="getUserProfile">点击按钮</nut-button> -->
       </view>
     </view>
     <view class="row btn" @click="submit">
@@ -340,6 +343,17 @@ import Util from "../../utils/util";
 export default {
   name: "Comment",
   components: {},
+  methods: {
+    async getUserProfile() {
+      try {
+        const res = await Taro.getUserProfile({ desc: '用于完善会员资料' });
+        console.log(res.userInfo);
+        // 在这里处理获取到的用户个人资料
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  },
   setup() {
     const state = reactive({
       // $instance: null,
@@ -477,6 +491,7 @@ export default {
     });
 
     onMounted(async () => {
+
       state.$instance = Taro.getCurrentInstance();
       state.submitData.id = state.$instance.router.params.id;
       if (state.submitData.id) {
@@ -762,6 +777,8 @@ export default {
     };
   },
 };
+
+
 </script>
 
 <style lang="scss">
@@ -834,3 +851,5 @@ export default {
   }
 }
 </style>
+
+

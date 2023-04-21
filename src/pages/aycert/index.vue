@@ -75,6 +75,7 @@
       </view>
     </view>
     <view class="row">
+      <!-- 一对多 -->
       <view class="title">5) 服务地区 <view class="require">*</view></view>
       <view
         v-show="
@@ -176,22 +177,24 @@
           v-model:file-list="imgsList"
           maximum="3"
           :headers="uploadHeaders"
-          :with-credentials="true"
+          :with- ="true"
           :maximize="uploadMaximize"
           @success="imgsSuccess"
         ></nut-uploader>
       </view>
+
     </view>
+    
     <view class="row">
-      <view class="title">10) 实名认证 <view class="require">*</view></view>
+      <view class="title">10) 实名认证 </view>
       <view
         v-show="
           readySubmit &&
           !submitDataValidator.idnum.pattern.test(submitData.idnum)
         "
         class="err"
-        >{{ submitDataValidator.idnum.msg }}</view
-      >
+        >{{ submitDataValidator.idnum.msg }}
+      </view>
       <view class="content">
         <nut-input
           v-model="submitData.idnum"
@@ -203,19 +206,6 @@
       <view class="title">11) 身份证照片</view>
       <view class="desc descc-h"> 单张图片大小不能大于5M </view>
       <view class="content">
-        <!-- <nut-uploader
-          :url="privateUploadUrl"
-          v-model:file-list="idnumImgsList"
-          maximum="2"
-          multiple
-          list-type="list"
-          :headers="uploadHeaders"
-          :with-credentials="true"
-          :maximize="uploadMaximize"
-          @success="idnumImgsSuccess"
-        >
-          <nut-button type="success" size="small">上传身份证</nut-button>
-        </nut-uploader> -->
         <nut-uploader
           :url="privateUploadUrl"
           v-model:file-list="idnumImgsList"
@@ -316,7 +306,7 @@ export default {
       hometownArr: ["北京"],
       servStartTimeShow: false,
       servEndTimeShow: false,
-      uploadUrl: process.env.REQ_BASE_URL + "/simple/file/upload",
+      uploadUrl: process.env.REQ_BASE_URL + "/file/upload/",
       privateUploadUrl:
         process.env.REQ_BASE_URL + "/simple/file/private-upload",
       uploadHeaders: { "miniapp-token": "" },
@@ -393,8 +383,8 @@ export default {
         },
         idnum: {
           pattern:
-            /^[1-9]\d{5}(18|19|20|(3\d))\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/,
-          msg: "请填写实名认证信息",
+            /((^[1-9]\d{5}(18|19|20|(3\d))\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx])|^)$/,
+          msg: "身份证号格式有误",
         },
       },
       readySubmit: false,
@@ -451,6 +441,7 @@ export default {
     };
 
     const submit = async () => {
+      var success = true;
       if (!getProfile()) return false;
       state.readySubmit = true;
       if (
@@ -459,7 +450,7 @@ export default {
         )
       ) {
         submitWarning(state.submitDataValidator.lastname.msg);
-        return false;
+        success = false;
       }
       if (
         !state.submitDataValidator.firstname.pattern.test(
@@ -467,7 +458,7 @@ export default {
         )
       ) {
         submitWarning(state.submitDataValidator.firstname.msg);
-        return false;
+        success = false;
       }
       if (
         !state.submitDataValidator.hometown.pattern.test(
@@ -475,27 +466,19 @@ export default {
         )
       ) {
         submitWarning(state.submitDataValidator.hometown.msg);
-        return false;
+        success = false;
       }
       // if (!state.submitDataValidator.age.pattern.test(state.submitData.age)) {
       //   submitWarning(state.submitDataValidator.age.msg);
       //   return false;
       // }
-      if (
-        !state.submitDataValidator.birthDate.pattern.test(
-          state.submitData.birthDate
-        )
-      ) {
+      if (!state.submitDataValidator.birthDate.pattern.test(state.submitData.birthDate)) {
         submitWarning(state.submitDataValidator.birthDate.msg);
-        return false;
+        success = false;
       }
-      if (
-        !state.submitDataValidator.servLocation.pattern.test(
-          state.submitData.servLocation
-        )
-      ) {
+      if (!state.submitDataValidator.servLocation.pattern.test(state.submitData.servLocation)) {
         submitWarning(state.submitDataValidator.servLocation.msg);
-        return false;
+        success =  false;
       }
       if (
         !state.submitDataValidator.contact.pattern.test(
@@ -507,7 +490,7 @@ export default {
         state.wxqrcodeList.length < 1
       ) {
         submitWarning(state.submitDataValidator.contact.msg);
-        return false;
+        success =  false;
       }
       if (
         !state.submitDataValidator.servStartYear.pattern.test(
@@ -515,7 +498,7 @@ export default {
         )
       ) {
         submitWarning(state.submitDataValidator.servStartYear.msg);
-        return false;
+        success =  false;
       }
       if (
         !state.submitDataValidator.servType.pattern.test(
@@ -523,31 +506,28 @@ export default {
         )
       ) {
         submitWarning(state.submitDataValidator.servType.msg);
-        return false;
+        success =  false;
       }
       if (!state.submitDataValidator.idnum.pattern.test(state.submitData.idnum))
-        return false;
+        success =  false;
       // 填充 & 校验
       if (state.wxqrcodeList.length > 0) {
-        if (
-          state.wxqrcodeList.filter((item) => item.status != "success").length >
-          0
-        ) {
+        if (state.wxqrcodeList.filter((item) => item.status != "success").length >0) {
           submitWarning("微信二维码未上传成功，请重试");
-          return;
+          success = false;
+        }else{
+          state.submitData.wxqrcode = state.wxqrcodeList[0].url;
         }
-        state.submitData.wxqrcode = state.wxqrcodeList[0].url;
       }
       if (state.imgsList.length > 0) {
-        if (
-          state.imgsList.filter((item) => item.status != "success").length > 0
-        ) {
+        if (state.imgsList.filter((item) => item.status != "success").length > 0) {
           submitWarning("图片未上传成功，请重试");
-          return;
-        }
-        state.submitData.imgs = state.imgsList
+          success = false;
+        }else{
+          state.submitData.imgs = state.imgsList
           .map((item) => item.url)
           .join(",");
+        }
       }
       if (state.idnumImgsList.length > 0) {
         if (
@@ -555,29 +535,41 @@ export default {
             .length > 0
         ) {
           submitWarning("身份证图片未上传成功，请重试");
-          return;
-        }
-        state.submitData.idnumImgs = state.idnumImgsList
+          success = false;
+        }else{
+          state.submitData.idnumImgs = state.idnumImgsList
           .map((item) => item.privateUrl)
           .join(",");
+        }
       }
       if (state.avatarList.length > 0) {
         if (
           state.avatarList.filter((item) => item.status != "success").length > 0
         ) {
           submitWarning("头像未上传成功，请重试");
-          return;
-        }
-        state.submitData.avatar = state.avatarList
+          success = false;
+        }else{
+          state.submitData.avatar = state.avatarList
           .map((item) => item.url)
           .join(",");
+        }
       }
       // 验证手机号码格式
       if (state.submitData.mobile) {
         if (!/^\d{11}$/.test(state.submitData.mobile)) {
           submitWarning("请输入正确的手机号码");
-          return;
+          success = false;
         }
+      }
+      if (! success)
+      {
+        Taro.showToast({
+          title: "请重新检查",
+          icon: "error",
+          duration: 2000,
+          mask: true,
+        });
+        return;
       }
       // 校验
       console.log("提交数据：", state.submitData);
@@ -616,9 +608,11 @@ export default {
       ).data;
     };
     const imgsSuccess = (e) => {
+      console.log(e.responseText.data);
       state.imgsList[state.imgsList.length - 1].url = JSON.parse(
         e.responseText.data
-      ).data;
+      ).data; 
+      console.log(state.imgsList[state.imgsList.length - 1].url);
     };
     const idnumImgsSuccess = (e) => {
       state.idnumImgsList[state.idnumImgsList.length - 1].privateUrl =

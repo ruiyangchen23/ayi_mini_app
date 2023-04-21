@@ -1,3 +1,4 @@
+
 export default defineAppConfig({
   pages: [
     'pages/index/index',
@@ -5,7 +6,7 @@ export default defineAppConfig({
     'pages/aydetail/index',
     'pages/aycert/index',
     'pages/comment/index',
-    'pages/comment1/index',
+    // 'pages/comment1/index',
     'pages/messages/index',
     'pages/collection/index',
     'pages/my/index',

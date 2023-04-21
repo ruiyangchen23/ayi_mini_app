@@ -4,6 +4,7 @@ import Taro from '@tarojs/taro'
  * 验证登陆状态
  * @returns 
  */
+
 export function authCheck() {
   return Taro.request({
     url: process.env.REQ_BASE_URL + '/auth/check',
@@ -24,6 +25,7 @@ export function authCheck() {
  * @returns 
  */
 export function authLogin(code, encryptedData = null, iv = null) {
+
   return Taro.request({
     url: process.env.REQ_BASE_URL + '/auth/login',
     data: {
@@ -57,31 +59,67 @@ export function authLogin(code, encryptedData = null, iv = null) {
  * @returns 
  */
 export function search(data) {
+  console.log("query is", data);
   return Taro.request({
-    url: process.env.REQ_BASE_URL + '/simple/search',
+    url: process.env.REQ_BASE_URL + '/search',
     data,
     method: 'POST',
     header: {
       // 默认值
       'content-type': 'application/json',
       'miniapp-token': Taro.getStorageSync('user').token
+    },
+    success: function (res) {
+      console.log("request success", res.data)
+    },
+    fail: function(ret){
+      console.log("request failed")
     }
   });
 }
+
+// export function search(data) {
+//   console.log("token is", Taro.getStorageSync('user').token);
+//   console.log("query is", data);
+//   return Taro.request({
+//     url: process.env.REQ_BASE_URL + '/simple/search',
+//     data,
+//     method: 'POST',
+//     header: {
+//       // 默认值
+//       'content-type': 'application/json',
+//       'miniapp-token': Taro.getStorageSync('user').token
+//     }
+//   });
+// }
 
 /**
  * 阿姨信息
  * @param {string} id - 阿姨ID
  * @returns 
  */
+// export function ayDetail(id) {
+//   return Taro.request({
+//     url: process.env.REQ_BASE_URL + '/simple/ay/detail/' + id,
+//     method: 'GET',
+//     header: {
+//       // 默认值
+//       'content-type': 'application/json',
+//       'miniapp-token': Taro.getStorageSync('user').token
+//     }
+//   });
+// }
 export function ayDetail(id) {
   return Taro.request({
-    url: process.env.REQ_BASE_URL + '/simple/ay/detail/' + id,
-    method: 'GET',
+    url: process.env.REQ_BASE_URL + '/api/ayi/info/',
+    method: 'POST',
     header: {
       // 默认值
       'content-type': 'application/json',
       'miniapp-token': Taro.getStorageSync('user').token
+    },
+    data: {
+      'id': id
     }
   });
 }
@@ -429,7 +467,7 @@ export function requestAfterHandle(res, succCall) {
   return returnRes;
 }
 
-/**
+/** todo: 把这改了
  * 登录
  */
 export function login(succCall) {
@@ -448,6 +486,27 @@ export function login(succCall) {
     },
   });
 }
+
+/**
+ * 注册用户
+ * @param {object} data - 请求实体 
+ * @param {string} data.username - 当前页(从1开始)
+ * @param {string} data.password - 页容量
+ * @returns 
+ */
+export function signup(data) {
+  return Taro.request({
+    url:  process.env.REQ_BASE_URL + '/auth/signup',
+    data: data,
+    method: 'Post',
+    header: {
+      // 默认值
+      'content-type': 'application/json',
+      'miniapp-token': Taro.getStorageSync('user').token
+    }
+  });
+}
+
 
 /**
  * 保存用户信息
@@ -533,5 +592,6 @@ export default {
   commentDetail,
   downloadImg,
   login,
+  signup,
   saveProfile,
 }

@@ -25,17 +25,12 @@
         @click="getUserProfile"
         type="getUserProfile"
       >
-        <!-- <nut-avatar
-          class="avatar"
-          size="large"
-          url="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAvdJREFUWEfFV0trFEEQrurNQxAFweDzsO5O9+hBD7JBDSgJHgQP3hRBPKl4y18w/gRzC+opCD5uHgQvKgq+EjzowUz3vg4aCREhapC4u13S4w5sNjPTPUlg5zj9fVVfVVdXVyNk+IIgOJvL5c5prY8yxoaIaMjQEXFRa73IGPvQarUe+77/xNUs2oD1en3PysrKdcbYZQAo2PDt9arWenpwcHAqn89/S+OkCgiCYIIxdg0A9jo67obNa61v+74/kcRPFKCUeggA59fpuJv2iHN+Ic5WrIByuVwjovwmOQ/NIGLd87wD3TbXCJBSLiLizs10Htkiou9CiLBwo2+VACnlS0Q86eD8KRHdb7VaLww2l8uNIuJFADhj4xLRKyHEqTUC2gV3w2YAAK5yzu/G4ZRSVwDgjs2G1vpmVJhhBsxRazQas7Zq7yQmOXEMZL6/v79kjmgowIVERL+EENtt0Zl1KeVPRNyWho2CCQUopQIAEGkEIpoTQhxyFPAZEQ9asJJz7qNSahQAnjsYfsc5P+6AMwG9BYBjDtgxlFLeQsRxB/BXzvl+B5wR8AUA9tmwRDRpBLxHxGEbuL0+wjl/k4ZVSp0AgNcu9ohoBrN0PSIKhBCpeyulnENE30WA6Y6mBn4DwFYXgsEYEgBc8jxvVZTlcnkEAO5lbOHLmQW0hf4FgGkAiLbDpN1c1wOugbRxy5m2wJDM+e3r65tBxNlCobBg/lWr1V1EVGo2m8OMMZduGvoPtyBDEVa01uO2acdMTYyxSQAo2rIRFqHLMXRpwd3OlFImE4mDiMGHx9ChETk3oBgRtoY0Zm3FjLEjxWLxky2dceuVSuWw1vpjAvd/KzaLSZfRelLf7cxmO/U6RsTTnuc9W0/0EUcpZWbBB102Vl/HSVlYWloaKJVKjY0IqNVqW5rN5p9OG2sGkmixayRb4Jzv3ojzjiz8AIAd7cqPH8k6RPRuKI1EZLmgXDPkPJZ3pK13D5NIRE+fZpGInj5OY5rKpj/P/wGTlpqwyZ7bjgAAAABJRU5ErkJggg=="
-        ></nut-avatar> -->
-        <nut-avatar
+      <nut-avatar
           class="avatar"
           size="large"
           :icon="defaultAvatar"
         ></nut-avatar>
-        <view class="usename">请登录</view>
+      <view class="usename">请登录</view>
       </view>
     </view>
 
@@ -45,6 +40,28 @@
         <view class="left">菜单栏</view>
       </view> -->
       <nut-cell-group>
+        <nut-cell title="登录" is-link @click="to_login">
+          <template v-slot:link>
+            <view
+              v-if="unreadCountCert && unreadCountCert > 0"
+              class="unread-count"
+            >
+            </view>
+            <nut-icon name="right"></nut-icon>
+          </template>
+        </nut-cell>
+
+        <nut-cell title="去新主页" is-link @click="to_new_idx">
+          <template v-slot:link>
+            <view
+              v-if="unreadCountCert && unreadCountCert > 0"
+              class="unread-count"
+            >
+            </view>
+            <nut-icon name="right"></nut-icon>
+          </template>
+        </nut-cell>
+
         <nut-cell title="我的注册" is-link @click="toMycert">
           <template v-slot:link>
             <view
@@ -168,7 +185,7 @@ export default {
             it.type == 5 ||
             it.type == 6
         )
-        .forEach((it) => (unreadCount = unreadCount + it.count));
+        .forEach((it) => {console.log(unreadCount);unreadCount = unreadCount + it.count;});
       if (unreadCount > 99) {
         unreadCount = 99;
       }
@@ -217,6 +234,16 @@ export default {
         url: "/pages/mycert/index",
       });
     };
+    const to_login = () => {
+      Taro.navigateTo({
+        url: "/pages/login/login",
+      });
+    };
+    // const to_new_idx = () => {
+    //   Taro.navigateTo({
+    //     url: "/pages/new_index/new_index",
+    //   });
+    // };
     const toCollection = () => {
       Taro.navigateTo({
         url: "/pages/collection/index",
@@ -298,6 +325,8 @@ export default {
       toMycomment,
       toMessages,
       toMycert,
+      to_login,
+      to_new_idx,
       toContactUs,
       copy: Util.copy,
     };

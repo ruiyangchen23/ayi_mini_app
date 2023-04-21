@@ -382,6 +382,7 @@ export default {
       // 加载阿姨信息
       API.ayDetail(state.id).then((ayDetailRes) => {
         API.requestAfterHandle(ayDetailRes, (data) => {
+          console.log("ayi detail is ", data);
           if (!!data) {
             data.avatar = data.avatar || defaultAvatar;
           }
@@ -399,6 +400,7 @@ export default {
       API.requestAfterHandle(
         await API.ayCommentPage(state.ayCommentPageParam),
         (data) => {
+          console.log("comment page are", data);
           handleCommentPageTime(data.records);
           for (const it of data.records) {
             it.replycommentList = [];

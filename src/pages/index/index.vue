@@ -79,7 +79,7 @@
         <nut-popup
           class="picker-item"
           position="bottom"
-          safe-area-inset-bottom="true"
+          :safe-area-inset-bottom=true
           @click-overlay="clickOverlay()"
           :visible="servLocationVisible"
         >
@@ -112,7 +112,7 @@
         <nut-popup
           class="picker-item"
           position="bottom"
-          safe-area-inset-bottom="true"
+          :safe-area-inset-bottom=true
           @click-overlay="clickOverlay()"
           :visible="ageVisible"
         >
@@ -143,7 +143,7 @@
         <nut-popup
           class="picker-item"
           position="bottom"
-          safe-area-inset-bottom="true"
+          :safe-area-inset-bottom=true
           @click-overlay="clickOverlay()"
           :visible="servYearVisible"
         >
@@ -174,7 +174,7 @@
         <nut-popup
           class="picker-item"
           position="bottom"
-          safe-area-inset-bottom="true"
+          :safe-area-inset-bottom=true
           @click-overlay="clickOverlay()"
           :visible="rateVisible"
         >
@@ -205,7 +205,7 @@
         <nut-popup
           class="picker-item"
           position="bottom"
-          safe-area-inset-bottom="true"
+          :safe-area-inset-bottom=true
           @click-overlay="clickOverlay()"
           :visible="sortVisible"
         >
@@ -365,12 +365,13 @@ export default {
         { text: "工作年限低到高", value: "servYearAsc" },
       ],
     });
-
+    console.log("im here");
     const bindPickerChange = (e) => {
       console.log(e);
     };
 
-    const tabbar = ref<InstanceType<typeof CustomTabBar>>();
+    const tabbar = ref<InstanceType<typeof CustomTabBar>>(null);
+
     useDidShow(() => {
       (tabbar.value as any).current = 0;
       setTimeout(() => {
@@ -421,6 +422,7 @@ export default {
       state.moreLoading = true;
       state.searchParam.pageNum++;
       API.requestAfterHandle(await API.search(state.searchParam), (data) => {
+        console.log("lower data",data);
         if (!!data.records && data.records.length > 0) {
           data.records.forEach(it => it.avatar = it.avatar || defaultAvatar)
         }
@@ -436,7 +438,9 @@ export default {
       state.moreLoading = true;
       state.searchParam.pageNum = 1;
       state.searchParam.pageSize = 20;
+      console.log("searching");
       API.requestAfterHandle(await API.search(state.searchParam), (data) => {
+        console.log("search receive", data);
         if (!!data.records && data.records.length > 0) {
           data.records.forEach(it => it.avatar = it.avatar || defaultAvatar)
         }
