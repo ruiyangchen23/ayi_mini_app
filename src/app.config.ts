@@ -12,6 +12,7 @@ export default defineAppConfig({
     'pages/my/index',
     'pages/mycert/index',
     'pages/profile/index',
+    'pages/new_index/new_index',
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -33,7 +34,12 @@ export default defineAppConfig({
       {
         pagePath: 'pages/my/index',
         text: '我'
+      },
+      {
+        pagePath: 'pages/new_index/new_index',
+        text: '新我'
       }
+
     ]
   },
   lazyCodeLoading: 'requiredComponents',
