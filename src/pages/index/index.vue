@@ -9,10 +9,11 @@
         @search="search"
         @clear="search"
         style="
-          background: linear-gradient(
+          background-color: aliceblue;
+          /* background: linear-gradient(
             rgba(236, 128, 126) 0%,
             rgba(236, 128, 126, 0.8) 100%
-          );
+          ); */
         "
       >
         <template v-slot:leftin>
@@ -798,7 +799,6 @@ export default {
       height: 100rpx;
       line-height: 100rpx;
       // padding-top: 10rpx;
-
       .title {
         padding: 0;
       }
@@ -825,9 +825,9 @@ export default {
         box-sizing: border-box;
 
         &.active {
-          background-color: #ea8382;
+          background-color: #ffffff;
           color: #fff;
-          box-shadow: 0 0 8rpx 0 #ea8382;
+          box-shadow: 0 0 8rpx 0 #ffffff;
         }
       }
     }
@@ -849,7 +849,7 @@ export default {
       }
 
       .confirm {
-        background-color: #ea8382;
+        background-color: #ffffff;
         color: #fff;
         flex: 1;
         height: 80rpx;

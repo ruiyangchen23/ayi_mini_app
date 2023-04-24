@@ -17,7 +17,7 @@ export default defineAppConfig({
   window: {
     backgroundTextStyle: 'light',
     // navigationBarBackgroundColor: '#fff',
-    navigationBarBackgroundColor: '#ea8382',
+    navigationBarBackgroundColor: '#ffffff',
     navigationBarTitleText: '阿姨推推',
     navigationBarTextStyle: 'black'
   },
@@ -25,7 +25,7 @@ export default defineAppConfig({
     custom: true,
     color: '#B1B1B1',
     selectedColor: '#34C266',
-    backgroundColor: '#F8F8F8',
+    backgroundColor: '#ffffff',
     list: [
       {
         pagePath: 'pages/index/index',

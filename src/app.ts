@@ -7,25 +7,31 @@ import { Button, Toast, SearchBar, Icon, Grid, GridItem, Avatar, Layout, Row, Co
 import './app.scss'
 import './custom_theme.scss'
 import './assert/fonts/font.css'
+import 'taro-ui-vue3/dist/style/index.scss'
 
 import Taro from '@tarojs/taro'
 import API from './utils/api'
+import { 
+  AtButton, 
+  AtInput, 
+  AtTabs,
+  AtCard
+} from 'taro-ui-vue3/lib'
 
-// import 'vuetify/styles'
-// import { createVuetify } from 'vuetify'
-// import * as components from 'vuetify/components'
-// import * as directives from 'vuetify/directives'
-
-// const vuetify = createVuetify({
-//   components,
-//   directives,
-// })
+import { createUI } from 'taro-ui-vue3'
 
 const App = createApp({
   onShow (options) {
     console.log('onShow', options);
   },
   // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
+})
+
+const tuv3 = createUI(  
+{  AtButton, 
+  AtInput, 
+  AtTabs,
+  AtCard 
 })
 
 
@@ -74,7 +80,7 @@ App.use(Button)
 .use(Notify)
 .use(Swipe)
 .use(WaterMark)
-// .use(vuetify)
+.use(tuv3)
 
 const login = () => {
   API.login(() => {
