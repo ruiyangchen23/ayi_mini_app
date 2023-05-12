@@ -1,8 +1,9 @@
 <template>
   <view class="index">
-    <scroll-view class="scrool-view" :scroll-y="true" @scrolltolower="lower">
+    <scroll-view class="scroll-view" :scroll-y="true" @scrolltolower="lower">
       <!-- <view class="title" style="background-color: #ef8086;">阿姨到我家</view> -->
-      <nut-searchbar
+
+      <nut-searchbar class="searchbar1"
         placeholder="找阿姨"
         input-background="#fff"
         v-model="searchParam.keyword"
@@ -10,14 +11,10 @@
         @clear="search"
         style="
           background-color: aliceblue;
-          /* background: linear-gradient(
-            rgba(236, 128, 126) 0%,
-            rgba(236, 128, 126, 0.8) 100%
-          ); */
         "
       >
         <template v-slot:leftin>
-          <nut-icon size="14" name="search2" color="#ef8086"></nut-icon>
+          <nut-icon size="30" name="search2" color="#ef8086"></nut-icon>
         </template>
         <template v-slot:rightin>
           <nut-button type="primary" size="small" @click="search"
@@ -25,217 +22,82 @@
           >
         </template>
       </nut-searchbar>
+      <!-- <div className={classes.unnamed4}>查看更多</div> -->
+      <div className={subtitle_1}>雇主评价
+        <div className={classes.unnamed4}>查看更多</div>
+      </div>
+      <button className={classes.primaryButton3}>
+        <div className={classes.unnamed6}>写评价</div>
+      </button>
 
-      <view class="filter bgc-w">
-        <view class="left">
-          <view
-            class="location left-item"
-            @click="() => (servLocationVisible = true)"
-          >
-            <view class="txt">地区</view>
-            <nut-icon
-              name="rect-down"
-              size="16rpx"
-              style="padding-left: 8rpx"
-            ></nut-icon>
-          </view>
-          <view class="age left-item" @click="() => (ageVisible = true)">
-            <view class="txt">年龄</view>
-            <nut-icon
-              name="rect-down"
-              size="16rpx"
-              style="padding-left: 8rpx"
-            ></nut-icon>
-          </view>
-          <view class="exp left-item" @click="() => (servYearVisible = true)">
-            <view class="txt">经验</view>
-            <nut-icon
-              name="rect-down"
-              size="16rpx"
-              style="padding-left: 8rpx"
-            ></nut-icon>
-          </view>
-          <view class="rate left-item" @click="() => (rateVisible = true)">
-            <view class="txt">评分</view>
-            <nut-icon
-              name="rect-down"
-              size="16rpx"
-              style="padding-left: 8rpx"
-            ></nut-icon>
-          </view>
-        </view>
-        <view class="right">
-          <view class="sort right-item" @click="() => (sortVisible = true)">
-            <view class="txt">排序</view>
-            <nut-icon
-              name="rect-down"
-              size="16rpx"
-              style="padding-left: 8rpx"
-            ></nut-icon>
-          </view>
-        </view>
+      <div className={classes.scroll-container}>
+        <div className={classes.rectangle2}>
+          <img src="https://img2.baidu.com/it/u=42789776,984461484&fm=253&fmt=auto&app=138&f=JPG?w=500&h=666" className={classes.avatarImage60}>
+          <div className={classes.review1}>
+            我很遗憾地说，我曾经雇佣的一位月嫂的服务并不尽如人意。她的名字是张丽华，但是她的服务并没有达到我的期望……
+          </div>
+          <div className={classes.time_loc}>1小时前 | 上海</div>
+          <div className={classes.ayi_name}>张丽华</div>
+          <div className={classes.stars}>
+            <nut-rate active-color="#FFC800"
+                    icon-size="10"
+                    spacing="2"
+                    />
+          </div>
+        </div>
+        <div className={classes.rectangle2}>
+          <img src="https://img2.baidu.com/it/u=42789776,984461484&fm=253&fmt=auto&app=138&f=JPG?w=500&h=666" className={classes.avatarImage60}>
+          <div className={classes.review1}>
+            我很遗憾地说，
+          </div>
+          <div className={classes.time_loc}>1小时前 | 上海</div>
+          <div className={classes.ayi_name}>张丽华</div>
+          <div className={classes.stars}>
+            <nut-rate active-color="#FFC800"
+                    icon-size="10"
+                    spacing="2"
+                    ></nut-rate>
+          </div>
+        </div>
+
+        <div className={classes.rectangle2}>
+          <img src="https://img2.baidu.com/it/u=42789776,984461484&fm=253&fmt=auto&app=138&f=JPG?w=500&h=666" className={classes.avatarImage60}>
+
+          <div className={classes.review1}>
+            我很遗憾地说，我曾经雇佣的一位月嫂的服务并不尽如人意。她的名字是张丽华，但是她的服务并没有达到我的期望……
+          </div>
+          <div className={classes.time_loc}>1小时前 | 上海</div>
+          <div className={classes.ayi_name}>张丽华</div>
+          <div className={classes.stars}>
+            <nut-rate active-color="#FFC800"
+                    icon-size="12"
+                    spacing="2"
+                    ></nut-rate>
+          </div>
+        </div>
+      </div>
+      <!-- <view class="subtitle-bar">
+        <h2 class="page-title">阿姨评价</h2>
+        <div class="title-right"> 查看更多 </div>
+      </view> -->
+      <view>
+        <div class="scroll-container">
+          <div class="product-card-wrapper">
+            <groupon-product-card v-for="product in sampleReviewList" :key="product.id" :product="product"></groupon-product-card>
+          </div>
+        </div>
+        </view>  
+      <view class="subtitle-bar">
+        <div class="page-title">同城阿姨</div>
+        <div class="title-right"> 查看更多 </div>
       </view>
-
-      <view class="picker-list">
-        <nut-popup
-          class="picker-item"
-          position="bottom"
-          :safe-area-inset-bottom=true
-          @click-overlay="clickOverlay()"
-          :visible="servLocationVisible"
-        >
-          <view class="container">
-            <view class="head">
-              <view class="title">地区</view>
-            </view>
-            <view class="body">
-              <view
-                v-for="(it, idx) in servLocationColumns"
-                :key="idx"
-                :class="{
-                  item: true,
-                  active: servLocationVal == it.value,
-                }"
-                @click="() => (servLocationVal = it.value)"
-              >
-                {{ it.text }}
-              </view>
-            </view>
-            <view class="foot">
-              <view class="cancel" @click="cancelServLocationVal"
-                >清除筛选</view
-              >
-              <view class="confirm" @click="confirmServLocationVal">确定</view>
-            </view>
-          </view>
-          <view class="zw" @click="clickOverlay()"></view>
-        </nut-popup>
-        <nut-popup
-          class="picker-item"
-          position="bottom"
-          :safe-area-inset-bottom=true
-          @click-overlay="clickOverlay()"
-          :visible="ageVisible"
-        >
-          <view class="container">
-            <view class="head">
-              <view class="title">年龄</view>
-            </view>
-            <view class="body">
-              <view
-                v-for="(it, idx) in ageColumns"
-                :key="idx"
-                :class="{
-                  item: true,
-                  active: ageVal == it.value,
-                }"
-                @click="() => (ageVal = it.value)"
-              >
-                {{ it.text }}
-              </view>
-            </view>
-            <view class="foot">
-              <view class="cancel" @click="cancelAgeVal">清除筛选</view>
-              <view class="confirm" @click="confirmAgeVal">确定</view>
-            </view>
-          </view>
-          <view class="zw" @click="clickOverlay()"></view>
-        </nut-popup>
-        <nut-popup
-          class="picker-item"
-          position="bottom"
-          :safe-area-inset-bottom=true
-          @click-overlay="clickOverlay()"
-          :visible="servYearVisible"
-        >
-          <view class="container">
-            <view class="head">
-              <view class="title">经验</view>
-            </view>
-            <view class="body">
-              <view
-                v-for="(it, idx) in servYearColumns"
-                :key="idx"
-                :class="{
-                  item: true,
-                  active: servYearVal == it.value,
-                }"
-                @click="() => (servYearVal = it.value)"
-              >
-                {{ it.text }}
-              </view>
-            </view>
-            <view class="foot">
-              <view class="cancel" @click="cancelServYearVal">清除筛选</view>
-              <view class="confirm" @click="confirmServYearVal">确定</view>
-            </view>
-          </view>
-          <view class="zw" @click="clickOverlay()"></view>
-        </nut-popup>
-        <nut-popup
-          class="picker-item"
-          position="bottom"
-          :safe-area-inset-bottom=true
-          @click-overlay="clickOverlay()"
-          :visible="rateVisible"
-        >
-          <view class="container">
-            <view class="head">
-              <view class="title">评分</view>
-            </view>
-            <view class="body">
-              <view
-                v-for="(it, idx) in rateColumns"
-                :key="idx"
-                :class="{
-                  item: true,
-                  active: rateVal == it.value,
-                }"
-                @click="() => (rateVal = it.value)"
-              >
-                {{ it.text }}
-              </view>
-            </view>
-            <view class="foot">
-              <view class="cancel" @click="cancelRateVal">清除筛选</view>
-              <view class="confirm" @click="confirmRateVal">确定</view>
-            </view>
-          </view>
-          <view class="zw" @click="clickOverlay()"></view>
-        </nut-popup>
-        <nut-popup
-          class="picker-item"
-          position="bottom"
-          :safe-area-inset-bottom=true
-          @click-overlay="clickOverlay()"
-          :visible="sortVisible"
-        >
-          <view class="container">
-            <view class="head">
-              <view class="title">排序</view>
-            </view>
-            <view class="body">
-              <view
-                v-for="(it, idx) in sortColumns"
-                :key="idx"
-                :class="{
-                  item: true,
-                  active: sortVal == it.value,
-                }"
-                @click="() => (sortVal = it.value)"
-              >
-                {{ it.text }}
-              </view>
-            </view>
-            <view class="foot">
-              <view class="cancel" @click="cancelSortVal">清除排序</view>
-              <view class="confirm" @click="confirmSortVal">确定</view>
-            </view>
-          </view>
-          <view class="zw" @click="clickOverlay()"></view>
-        </nut-popup>
+      <view>
+        <div class="scroll-container">
+          <div class="product-card-wrapper">
+            <groupon-product-card v-for="ayi in sampleAyiList" :key="ayi.id" :product="ayi"></groupon-product-card>
+          </div>
+        </div> 
       </view>
-
       <view class="list">
         <view
           class="it"
@@ -300,6 +162,9 @@ import Taro, { useDidShow } from "@tarojs/taro";
 import CustomTabBar from "../../components/custom-tab-bar/index.vue";
 import API from "../../utils/api";
 import Constants from "../../utils/constants";
+// import ReviewCard from "../new_index/review_card.vue"
+// import ReviewCardList from "../new_index/review_card_list.vue"
+import GrouponProductCard from './card.vue';
 
 const defaultAvatar = process.env.DEFAULT_AVATAR;
 
@@ -307,6 +172,9 @@ export default {
   name: "Index",
   components: {
     "custom-tab-bar": CustomTabBar,
+    // ReviewCard,
+    // ReviewCardList,
+    GrouponProductCard
   },
   setup() {
     const state = reactive({
@@ -316,6 +184,7 @@ export default {
       searchParam: {
         pageNum: 1,
         pageSize: 20,
+        keyword: "",
       },
       searchRes: {},
       servLocationVal: "",
@@ -325,6 +194,71 @@ export default {
         { text: "全部", value: "" },
         ...Constants.locationList(),
       ]),
+      sampleReviewList: [
+      {
+          id: 1,
+          image: 'https://picsum.photos/id/1/300/250',
+          title: '商品1',
+          price: '¥99.00'
+      },
+        {
+          id: 2,
+          image: 'https://picsum.photos/id/2/300/250',
+          title: '商品2',
+          price: '¥199.00'
+        },
+        {
+          id: 3,
+          image: 'https://picsum.photos/id/3/300/250',
+          title: '商品3',
+          price: '¥299.00'
+        },
+        {
+          id: 4,
+          image: 'https://picsum.photos/id/1/300/250',
+          title: '商品4',
+          price: '¥192.00'
+        },
+        {
+          id: 5,
+          image: 'https://picsum.photos/id/1/300/250',
+          title: '商品1',
+          price: '¥99.00'
+        },
+      ],
+      sampleAyiList: [
+      {
+          id: 1,
+          image: 'https://picsum.photos/id/1/300/250',
+          title: '商品1',
+          price: '¥99.00'
+      },
+        {
+          id: 2,
+          image: 'https://picsum.photos/id/2/300/250',
+          title: '商品2',
+          price: '¥199.00'
+        },
+        {
+          id: 3,
+          image: 'https://picsum.photos/id/3/300/250',
+          title: '商品3',
+          price: '¥299.00'
+        },
+        {
+          id: 4,
+          image: 'https://picsum.photos/id/1/300/250',
+          title: '商品4',
+          price: '¥192.00'
+        },
+        {
+          id: 5,
+          image: 'https://picsum.photos/id/1/300/250',
+          title: '商品1',
+          price: '¥99.00'
+        },
+        ],
+
       ageVal: "",
       ageValTmp: "",
       ageVisible: false,
@@ -609,19 +543,52 @@ export default {
   height: 100%;
   padding-bottom: 100rpx;
 
-  .scrool-view {
+  .scroll-view {
     height: 100vh;
 
     .footer {
       padding: 0 100rpx 20rpx 100rpx;
     }
+    position: relative;
   }
-
+  .title-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    color: rgb(0, 0, 0);
+    height: 60px;
+    font-size: 24px;
+    
+  }
   .title {
     font-size: 32rpx;
-    font-weight: 600;
+    font-weight: 800;
     padding: 20rpx 20rpx;
   }
+
+  .subtitle-bar {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    background-color: #f5f5f5;
+    color: rgb(0, 0, 0);
+    height: 30px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: "黑体", sans-serif;
+    .page-title {
+      display: flex;
+      align-items: center;
+      flex-grow: 1; 
+    }
+    .title-right {
+      display: flex;
+      align-items: center;
+    }
+  }
+
 
   .filter {
     display: flex;
@@ -651,7 +618,7 @@ export default {
         .list {
           position: absolute;
           top: 30rpx;
-          background: #fff;
+          background: #f5f5f5;
           width: 100rpx;
           padding: 20rpx;
           line-height: 1.4rem;
@@ -687,7 +654,7 @@ export default {
       width: 340rpx;
       // height: 200rpx;
       padding: 30rpx 20rpx;
-      background: #fff;
+      background: #f5f5f5;
       border-radius: 20rpx;
       display: flex;
       margin-top: 20rpx;
@@ -769,6 +736,194 @@ export default {
 .nut-divider.nut-divider-vertical {
   margin: 0 4rpx;
 }
+.product-card-wrapper{
+  display: flex;
+  flex-wrap: nowrap;
+}
+.groupon-product-card {
+  border-radius: 10px;
+  width: 200rpx;  
+  margin-right: 16px; /* 在商品卡片之间添加 margin-right，使商品卡片之间有间距 */
+}
+
+.scroll-container {
+  display: flex;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  align-items: flex-start;
+  overflow-x: scroll; /* 设置 overflow-x 属性为 auto，使容器可以横向滚动 */
+  scrollbar-width: none; /* 隐藏滚动条 */
+  -ms-overflow-style: none; /* 隐藏滚动条 */
+  padding: 10px;
+}
+.unnamed4 {
+  color: #000;
+  font-size: 13px;
+  font-family: Hiragino Maru Gothic Pro, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', 'Liberation Sans', sans-serif;
+  text-decoration: underline;
+  position: relative;
+  // left: 315px;
+  // top: 150px;
+  // width: 60px;
+  // height: 22px;
+  flex-direction: column;
+}
+.primaryButton3 {
+  position: relative;
+  left: -140px;
+  // // right: 15px;
+  // top: 15px;
+  width: 89px;
+  height: 25px;
+  // place-content: center;
+  // align-items: center;
+  padding: 0 16px;
+  border-radius: 5px;
+  background-color: #e18683;
+  overflow: hidden;
+  .unnamed6 {
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+      'Liberation Sans', sans-serif;
+    width: min-content;
+    height: min-content;
+    white-space: nowrap;
+    flex-direction: column;
+  }
+
+}
+
+.unnamed4 {
+  color: #000;
+  font-size: 13px;
+  font-family: Hiragino Maru Gothic Pro, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', 'Liberation Sans', sans-serif;
+  text-decoration: underline;
+  // position: relative;
+  // left: 315px;
+  // top: 120px;
+  float: right;
+  width: 60px;
+  height: 22px;
+  flex-direction: column;
+}
+
+.subtitle_1 {
+  color: #000;
+  font-size: 20px;
+  font-family: Hiragino Maru Gothic Pro, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', 'Liberation Sans', sans-serif;
+  position: relative;
+  // left: 20px;
+  // top: 143px;
+  // width: 106px;
+  // height: 22px;
+  flex-direction: column;
+}
+
+// .scroll_new {
+//   position: relative;
+//   left: 20px;
+//   top: 0px;
+//   width: 357px;
+//   height: 140px;
+//   align-items: flex-start;
+//   overflow-x: scroll;
+//   // overflow-y: hidden;
+// }
+
+.rectangle2 {
+  display: grid;
+  position: relative;
+  // left: 225px;
+  // top: 0;
+  width: 200px;
+  height: 140px;
+  outline: solid 1px #000;
+  outline-offset: -1px;
+  color: #fff;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  margin-right: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 10px;
+  grid-template-areas: 
+  "a a b b b"
+  "a a d d ."
+  "c c c c c"
+  "c c c c c"
+  "e e e e e";
+
+}
+
+.review1 {
+  grid-area: c;
+  color: #000;
+  font-size: 10px;
+  font-family: Hiragino Kaku Gothic ProN, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', 'Liberation Sans', sans-serif;
+  // position: relative;
+  overflow: hidden;
+  // left: 249px;
+  // top: 69px;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+.ayi_name {
+  grid-area: b;
+  color: #000;
+  font-size: 14px;
+  font-family: Hiragino Kaku Gothic StdN, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', 'Liberation Sans', sans-serif;
+  // position: static;
+  // left: 302px;
+  // top: 21px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  flex-direction: column;
+}
+.stars {
+  grid-area: d;
+  // position: relative;
+  // left: 301px;
+  // top: 45px;  
+  width: 100%;
+  height: 100%;
+}
+
+.time_loc {
+  grid-area: e;
+  color: #808284;
+  font-size: 10px;
+  font-family: Hiragino Kaku Gothic ProN, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', 'Liberation Sans', sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+}
+
+.avatarImage60 {
+  grid-area: a;
+  // position: rlative;
+  // left: 248px;
+  // top: 13px;
+  width: 44px;
+  height: 48px;
+  overflow: hidden;
+  // background-image:/* webpackIgnore: true */ url('/src/assets/avatarImage60.jpg');
+}
+
 
 .popup-bottom {
   box-shadow: 0px -5px 10px -5px #a7a7a7;
@@ -785,7 +940,7 @@ export default {
     .nut-popup {
       background-color: inherit;
       .container {
-        background-color: #fff;
+        background-color: #f5f5f5;
       }
 
       .zw {
@@ -825,9 +980,9 @@ export default {
         box-sizing: border-box;
 
         &.active {
-          background-color: #ffffff;
+          background-color: #f5f5f5;
           color: #fff;
-          box-shadow: 0 0 8rpx 0 #ffffff;
+          box-shadow: 0 0 8rpx 0 #f5f5f5;
         }
       }
     }
@@ -849,7 +1004,7 @@ export default {
       }
 
       .confirm {
-        background-color: #ffffff;
+        background-color: #f5f5f5;
         color: #fff;
         flex: 1;
         height: 80rpx;

@@ -1,5 +1,9 @@
 <template>
-<view class="card-container_col">
+<view>
+  <ReviewCardList :reviews="sampleReviewList" />
+</view>  
+
+<!-- <view class="card-container_col">
   <view class="card-container_row" style="margin-top: -120px">
     <view>
       <AtCard
@@ -15,12 +19,9 @@
       </view>
       <view class="card-body">
         <view class="card-info">
-          <!-- <view class="card-name">张三</view> -->
           <view class="card-title">陈阿姨</view>
-          <!-- <view class="card-phone">联系电话:1234567890</view> -->
         </view>
         <view class="card-section">
-          <!-- <view class="card-section-title">个人介绍</view> -->
           <view class="card-section-content">
             本人热爱前端开发,熟悉JavaScript、Vue.js等前端框架,有多年Web开发经验。
           </view>
@@ -43,12 +44,9 @@
       </view>
       <view class="card-body">
         <view class="card-info">
-          <!-- <view class="card-name">张三</view> -->
           <view class="card-title">陈阿姨</view>
-          <!-- <view class="card-phone">联系电话:1234567890</view> -->
         </view>
         <view class="card-section">
-          <!-- <view class="card-section-title">个人介绍</view> -->
           <view class="card-section-content">
             本人热爱前端开发,熟悉JavaScript、Vue.js等前端框架,有多年Web开发经验。
           </view>
@@ -62,14 +60,12 @@
   <view>
     <AtCard class = "heyyo">
     <view class="comment-container" >
-      <!-- Comment avatar -->
       <AtAvatar 
         circle
         size='small'
         image='https://dummyimage.com/80x80/000/fff'
         >
       </AtAvatar>
-      <!-- Comment content -->
       <view class="comment-content">
         <text class="comment-user">阿里古拉：</text>
         <text class="comment-text">这是一条评论内容凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数</text>
@@ -82,7 +78,7 @@
   
   </View>
 </view>
-
+ -->
 <custom-tab-bar ref="tabbar"></custom-tab-bar>
 </template>
 
@@ -94,6 +90,8 @@ import { AtButton, AtCard, AtAvatar } from 'taro-ui-vue3/lib'
 
 import 'taro-ui-vue3/dist/style/components/button.scss'
 import "taro-ui-vue3/dist/style/components/card.scss";
+import ReviewCard from './review_card.vue';
+import ReviewCardList from './review_card_list.vue';
 
 export default {
   name: "My",
@@ -101,10 +99,35 @@ export default {
     "custom-tab-bar": CustomTabBar,
     AtButton,
     AtCard,
-    AtAvatar  },
+    AtAvatar,
+    ReviewCard,
+    ReviewCardList},
   
   data() {
     return {
+      sampleReviewList: [
+          {
+            avatar: 'https://dummyimage.com/80x80/000/fff',
+            title: '张三',
+            content: '这是一个很棒的产品，我非常喜欢！',
+          },
+          {
+            avatar: 'https://dummyimage.com/80x80/000/fff',
+            title: '张三',
+            content: '这是一个很棒的产品，我非常喜欢！',
+          },
+          {
+            avatar: 'https://dummyimage.com/80x80/000/fff',
+            title: '张三',
+            content: '这是一个很棒的产品，我非常喜欢！',
+          },
+          {
+            avatar: 'https://dummyimage.com/80x80/000/fff',
+            title: '张三',
+            content: '这是一个很棒的产品，我非常喜欢！',
+          },
+
+        ],
       current: 1,
       duration: 500,
       interval: 5000,
@@ -149,92 +172,5 @@ export default {
 
 </script>
 <style lang="scss">
-.ayi_card{
-  display: flex;
-}
-// .panel__content {
-//   .btn-item {
-//     margin-bottom: 20px;
-
-//     &:last-child {
-//       margin-bottom: 0;
-//       &:first-child {
-//         margin-left: 0;
-//       }
-//     }
-//   }
-// }
-
-.at-card__header {
-  height: 15px;
-  line-height: 15px;
-}
-
-.heyyo {
-  .title {
-    display : none;
-  }
-}
-// .card-container_col {
-//   // display: flex;
-//   // justify-content: center;
-//   // align-items: center;
-//   // flex-wrap: wrap;
-//   display: flex;
-//   flex-wrap: wrap;
-// }
-.card-container_row {
-  display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // // height: 100vh;
-  // background-color: #ffffff;
-  // transform: scale(0.5);
-  // transform-origin: left top;
-  // width: 200%;
-  // height: 200%;
-  overflow-x: scroll;
-  white-space: nowrap;
-
-  // margin-bottom: 10px;
-}
-.card-avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-right: 16px;
-}
-
-.card-header {
-  display: flex;
-  align-items: center;
-}
-
-.comment-container {
-  display: flex;
-  align-items: center;
-}
-
-.comment-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.comment-content {
-  flex: 1;
-}
-
-.comment-user {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.comment-text {
-  font-size: 14px;
-  color: #666;
-}
 
 </style>
